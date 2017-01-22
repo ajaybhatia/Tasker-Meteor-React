@@ -6,6 +6,9 @@ import { Session } from 'meteor/session'
 import { Tasks } from '../../api/tasks';
 
 class UpdateTask extends Component {
+  // This is to solve page refresh issue
+  // If we refresh page manually, the values of form-elements
+  // don't come back. This resolves the issue.
   componentWillReceiveProps(props) {
     ReactDOM.findDOMNode(this.refs.inputText).value = props.task.text;
     ReactDOM.findDOMNode(this.refs.inputDescription).value = props.task.description;
